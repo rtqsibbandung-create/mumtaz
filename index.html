@@ -2,8 +2,8 @@
 <html lang="id" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoring Murojaah Santri - Premium Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Monitoring Murojaah Santri - Mobile Pro</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -20,74 +20,74 @@
                 }
             }
         }
-        // Konfigurasi URL Google Apps Script
+        // Konfigurasi URL Google Apps Script Anda
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzSVEvex_AQAEd6JsIEAK-y5Q8H2fe-Dn2LZGB3q4aq3o42sLI7cj-XYnCDQHt47rihHg/exec";
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-full flex flex-col selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-900 text-slate-100 min-h-full flex flex-col selection:bg-emerald-500 selection:text-white pb-16 sm:pb-6">
 
-    <!-- Header / Navbar Elegan -->
-    <header class="bg-slate-800/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-700/60 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center space-x-3">
-                <div class="bg-gradient-to-tr from-emerald-600 to-teal-500 p-3 rounded-2xl shadow-md shadow-emerald-900/20">
-                    <i class="fa-solid fa-quran text-white text-xl"></i>
+    <!-- Header / Navbar Mobile Friendly -->
+    <header class="bg-slate-800/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-700/60 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3 sm:py-4 flex justify-between items-center gap-2">
+            <div class="flex items-center space-x-2.5">
+                <div class="bg-gradient-to-tr from-emerald-600 to-teal-500 p-2.5 rounded-xl shadow-md shadow-emerald-900/20">
+                    <i class="fa-solid fa-quran text-white text-base sm:text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                        Monitoring Murojaah <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-medium">Pro v2.0</span>
+                    <h1 class="text-sm sm:text-base font-bold tracking-tight text-white flex items-center gap-1.5">
+                        Murojaah Mumtaz <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded-md font-medium">Mobile Pro</span>
                     </h1>
-                    <p class="text-xs text-slate-400">Sistem Sinkronisasi Cloud Google Sheets</p>
+                    <p class="text-[11px] text-slate-400">Google Sheets Sync</p>
                 </div>
             </div>
-            <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
-                <button onclick="fetchData()" class="bg-slate-700/60 hover:bg-slate-700 text-slate-200 hover:text-white px-4 py-2.5 rounded-xl text-xs font-semibold border border-slate-600/60 transition-all duration-200 flex items-center gap-2 shadow-sm">
-                    <i class="fa-solid fa-rotate text-emerald-400" id="sync-icon"></i> Sinkronkan Data
+            <div class="flex items-center gap-2">
+                <button onclick="fetchData()" class="bg-slate-700/70 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl text-xs font-semibold border border-slate-600/60 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-rotate text-emerald-400" id="sync-icon"></i> <span class="hidden sm:inline">Sinkronkan</span>
                 </button>
-                <button onclick="openSantriModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 flex items-center gap-2 shadow-md shadow-emerald-900/30">
-                    <i class="fa-solid fa-users-gear"></i> Kelola Santri
+                <button onclick="openSantriModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-3 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 shadow-md shadow-emerald-900/30">
+                    <i class="fa-solid fa-users-gear"></i> <span class="hidden sm:inline">Santri</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 flex-grow w-full">
+    <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 flex-grow w-full">
 
-        <!-- Kolom Kiri: Form Input Murojaah (4 Kolom di LG) -->
-        <section class="lg:col-span-4">
-            <div class="bg-slate-800/70 backdrop-blur-xl rounded-3xl shadow-xl border border-slate-700/60 p-6 sticky top-24">
-                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-700/60">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-                        <i class="fa-solid fa-pen-nib text-sm"></i>
+        <!-- Kolom Kiri / Atas: Form Input Murojaah -->
+        <section class="lg:col-span-4 order-1 lg:order-1">
+            <div class="bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl border border-slate-700/60 p-4 sm:p-6 lg:sticky lg:top-20">
+                <div class="flex items-center gap-3 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-slate-700/60">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                        <i class="fa-solid fa-pen-nib text-xs sm:text-sm"></i>
                     </div>
                     <div>
-                        <h2 class="text-base font-bold text-white">Input Murojaah</h2>
-                        <p class="text-xs text-slate-400">Catat hafalan harian santri</p>
+                        <h2 class="text-sm sm:text-base font-bold text-white">Input Murojaah</h2>
+                        <p class="text-[11px] sm:text-xs text-slate-400">Catat setoran hafalan santri</p>
                     </div>
                 </div>
 
-                <form id="murojaah-form" onsubmit="submitMurojaah(event)" class="space-y-4">
+                <form id="murojaah-form" onsubmit="submitMurojaah(event)" class="space-y-3 sm:space-y-4">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Tanggal Setoran</label>
+                        <label class="block text-[11px] sm:text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Tanggal Setoran</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                                 <i class="fa-regular fa-calendar text-xs"></i>
                             </span>
-                            <input type="date" id="input-tanggal" required class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition">
+                            <input type="date" id="input-tanggal" required class="w-full pl-10 pr-3 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Nama Santri</label>
+                        <label class="block text-[11px] sm:text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Nama Santri</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                                 <i class="fa-solid fa-user text-xs"></i>
                             </span>
-                            <select id="input-nama" required class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition appearance-none">
+                            <select id="input-nama" required class="w-full pl-10 pr-8 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none">
                                 <option value="">-- Pilih Nama Santri --</option>
                             </select>
                             <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
@@ -97,12 +97,12 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Jumlah Halaman (1 - 10)</label>
+                        <label class="block text-[11px] sm:text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Jumlah Halaman (1 - 10)</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                                 <i class="fa-solid fa-book-open text-xs"></i>
                             </span>
-                            <select id="input-halaman" required class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition appearance-none">
+                            <select id="input-halaman" required class="w-full pl-10 pr-8 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 appearance-none">
                                 <option value="">-- Pilih Jumlah Halaman --</option>
                                 <option value="1">1 Halaman</option>
                                 <option value="2">2 Halaman</option>
@@ -122,79 +122,67 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Catatan / Surah (Opsional)</label>
-                        <textarea id="input-catatan" rows="3" placeholder="Contoh: Surah An-Naba' ayat 1-40, lancar & tajwid baik" class="w-full p-3 rounded-xl bg-slate-900/80 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition resize-none"></textarea>
+                        <label class="block text-[11px] sm:text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Catatan / Surah (Opsional)</label>
+                        <textarea id="input-catatan" rows="2" placeholder="Contoh: An-Naba' 1-40, lancar" class="w-full p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"></textarea>
                     </div>
 
-                    <button type="submit" id="btn-submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-sm transition-all duration-200 shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-floppy-disk"></i> Simpan Setoran Murojaah
+                    <button type="submit" id="btn-submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3 rounded-xl text-xs sm:text-sm transition shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-floppy-disk"></i> Simpan Setoran
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- Kolom Kanan: Monitoring & Statistik (8 Kolom di LG) -->
-        <section class="lg:col-span-8 space-y-8">
+        <!-- Kolom Kanan / Bawah: Statistik & Tabel Monitoring -->
+        <section class="lg:col-span-8 order-2 lg:order-2 space-y-5 sm:space-y-8">
 
-            <!-- Ringkasan Kartu Statistik (Stats Grid) -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div class="bg-slate-800/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden group hover:border-emerald-500/50 transition">
-                    <div class="absolute -right-4 -bottom-4 text-emerald-500/10 group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-circle-check text-6xl"></i>
-                    </div>
-                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Sudah (Hari Ini)</p>
-                    <h3 id="stat-sudah-hari-ini" class="text-3xl font-extrabold text-emerald-400 mt-2">0</h3>
+            <!-- Ringkasan Statistik (2x2 di Mobile, 4 Kolom di Desktop) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                <div class="bg-slate-800/80 backdrop-blur-xl p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden">
+                    <p class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">Sudah (Hari Ini)</p>
+                    <h3 id="stat-sudah-hari-ini" class="text-2xl sm:text-3xl font-extrabold text-emerald-400 mt-1 sm:mt-2">0</h3>
                 </div>
 
-                <div class="bg-slate-800/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden group hover:border-rose-500/50 transition">
-                    <div class="absolute -right-4 -bottom-4 text-rose-500/10 group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-circle-exclamation text-6xl"></i>
-                    </div>
-                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Belum (Hari Ini)</p>
-                    <h3 id="stat-belum-hari-ini" class="text-3xl font-extrabold text-rose-400 mt-2">0</h3>
+                <div class="bg-slate-800/80 backdrop-blur-xl p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden">
+                    <p class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">Belum (Hari Ini)</p>
+                    <h3 id="stat-belum-hari-ini" class="text-2xl sm:text-3xl font-extrabold text-rose-400 mt-1 sm:mt-2">0</h3>
                 </div>
 
-                <div class="bg-slate-800/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden group hover:border-teal-500/50 transition">
-                    <div class="absolute -right-4 -bottom-4 text-teal-500/10 group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-calendar-check text-6xl"></i>
-                    </div>
-                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Sudah (Kemarin)</p>
-                    <h3 id="stat-sudah-kemarin" class="text-3xl font-extrabold text-teal-400 mt-2">0</h3>
+                <div class="bg-slate-800/80 backdrop-blur-xl p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden">
+                    <p class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">Sudah (Kemarin)</p>
+                    <h3 id="stat-sudah-kemarin" class="text-2xl sm:text-3xl font-extrabold text-teal-400 mt-1 sm:mt-2">0</h3>
                 </div>
 
-                <div class="bg-slate-800/70 backdrop-blur-xl p-5 rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden group hover:border-amber-500/50 transition">
-                    <div class="absolute -right-4 -bottom-4 text-amber-500/10 group-hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-clock text-6xl"></i>
-                    </div>
-                    <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Belum (Kemarin)</p>
-                    <h3 id="stat-belum-kemarin" class="text-3xl font-extrabold text-amber-400 mt-2">0</h3>
+                <div class="bg-slate-800/80 backdrop-blur-xl p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-700/60 shadow-sm relative overflow-hidden">
+                    <p class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400">Belum (Kemarin)</p>
+                    <h3 id="stat-belum-kemarin" class="text-2xl sm:text-3xl font-extrabold text-amber-400 mt-1 sm:mt-2">0</h3>
                 </div>
             </div>
 
             <!-- Panel Status Harian & Pengingat WA -->
-            <div class="bg-slate-800/70 backdrop-blur-xl rounded-3xl shadow-xl border border-slate-700/60 p-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                    <div class="flex bg-slate-900/80 p-1.5 rounded-2xl border border-slate-700/60">
-                        <button onclick="switchTab('hari-ini')" id="tab-hari-ini" class="px-5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-md transition-all duration-200">Hari Ini</button>
-                        <button onclick="switchTab('kemarin')" id="tab-kemarin" class="px-5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all duration-200">Kemarin</button>
+            <div class="bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl border border-slate-700/60 p-4 sm:p-6">
+                <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 mb-4 sm:mb-6">
+                    <div class="flex bg-slate-900/90 p-1 rounded-xl border border-slate-700/60">
+                        <button onclick="switchTab('hari-ini')" id="tab-hari-ini" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow transition">Hari Ini</button>
+                        <button onclick="switchTab('kemarin')" id="tab-kemarin" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition">Kemarin</button>
                     </div>
-                    <button onclick="bukaWhatsAppMasal()" class="bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-base"></i> Salin Rekap Belum Murojaah
+                    <button onclick="bukaWhatsAppMasal()" class="bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-3.5 py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Salin Rekap Belum Murojaah
                     </button>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
+                <div class="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+                    <table class="w-full text-left border-collapse min-w-[500px] sm:min-w-full">
                         <thead>
-                            <tr class="border-b border-slate-700 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                                <th class="py-3.5 px-4">Nama Santri</th>
-                                <th class="py-3.5 px-4">Status</th>
-                                <th class="py-3.5 px-4">Halaman</th>
-                                <th class="py-3.5 px-4">Catatan</th>
-                                <th class="py-3.5 px-4 text-center">Aksi WA</th>
+                            <tr class="border-b border-slate-700 text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                <th class="py-3 px-3 sm:px-4">Nama Santri</th>
+                                <th class="py-3 px-3 sm:px-4">Status</th>
+                                <th class="py-3 px-3 sm:px-4">Halaman</th>
+                                <th class="py-3 px-3 sm:px-4">Catatan</th>
+                                <th class="py-3 px-3 sm:px-4 text-center">Aksi WA</th>
                             </tr>
                         </thead>
-                        <tbody id="tabel-status-body" class="divide-y divide-slate-700/50 text-sm">
+                        <tbody id="tabel-status-body" class="divide-y divide-slate-700/40 text-xs sm:text-sm">
                             <!-- Diisi via JavaScript -->
                         </tbody>
                     </table>
@@ -202,32 +190,32 @@
             </div>
 
             <!-- Tabel Riwayat Semua Tanggal -->
-            <div class="bg-slate-800/70 backdrop-blur-xl rounded-3xl shadow-xl border border-slate-700/60 p-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                    <div class="flex items-center gap-3">
+            <div class="bg-slate-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl border border-slate-700/60 p-4 sm:p-6">
+                <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 mb-4 sm:mb-6">
+                    <div class="flex items-center gap-2.5">
                         <div class="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400">
                             <i class="fa-solid fa-clock-rotate-left text-xs"></i>
                         </div>
-                        <h2 class="text-base font-bold text-white">Riwayat Murojaah</h2>
+                        <h2 class="text-sm sm:text-base font-bold text-white">Riwayat Murojaah</h2>
                     </div>
-                    <div class="flex flex-wrap gap-2.5 w-full sm:w-auto">
-                        <input type="date" id="filter-tanggal" onchange="renderRiwayat()" class="px-3.5 py-2 bg-slate-900/80 border border-slate-700 rounded-xl text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                        <input type="text" id="filter-search" oninput="renderRiwayat()" placeholder="Cari nama santri..." class="px-3.5 py-2 bg-slate-900/80 border border-slate-700 rounded-xl text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full sm:w-48">
+                    <div class="grid grid-cols-2 sm:flex gap-2">
+                        <input type="date" id="filter-tanggal" onchange="renderRiwayat()" class="px-3 py-2 bg-slate-900/90 border border-slate-700 rounded-xl text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <input type="text" id="filter-search" oninput="renderRiwayat()" placeholder="Cari santri..." class="px-3 py-2 bg-slate-900/90 border border-slate-700 rounded-xl text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     </div>
                 </div>
 
-                <div class="overflow-x-auto max-h-96 overflow-y-auto pr-1">
-                    <table class="w-full text-left border-collapse">
+                <div class="overflow-x-auto max-h-80 sm:max-h-96 overflow-y-auto pr-1 -mx-4 sm:mx-0 px-4 sm:px-0">
+                    <table class="w-full text-left border-collapse min-w-[500px] sm:min-w-full">
                         <thead class="sticky top-0 bg-slate-800 z-10">
-                            <tr class="border-b border-slate-700 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                                <th class="py-3.5 px-4">Tanggal</th>
-                                <th class="py-3.5 px-4">Nama Santri</th>
-                                <th class="py-3.5 px-4">Hal</th>
-                                <th class="py-3.5 px-4">Catatan</th>
-                                <th class="py-3.5 px-4 text-center">Aksi</th>
+                            <tr class="border-b border-slate-700 text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                <th class="py-3 px-3 sm:px-4">Tanggal</th>
+                                <th class="py-3 px-3 sm:px-4">Nama Santri</th>
+                                <th class="py-3 px-3 sm:px-4">Hal</th>
+                                <th class="py-3 px-3 sm:px-4">Catatan</th>
+                                <th class="py-3 px-3 sm:px-4 text-center">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody id="tabel-riwayat-body" class="divide-y divide-slate-700/50 text-sm">
+                        <tbody id="tabel-riwayat-body" class="divide-y divide-slate-700/40 text-xs sm:text-sm">
                             <!-- Diisi via JavaScript -->
                         </tbody>
                     </table>
@@ -238,33 +226,33 @@
     </main>
 
     <!-- Modal Kelola Santri -->
-    <div id="santri-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
-        <div class="bg-slate-800 border border-slate-700 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
-            <div class="px-6 py-5 bg-slate-800/90 border-b border-slate-700 flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-                        <i class="fa-solid fa-users text-sm"></i>
+    <div id="santri-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-4 z-50">
+        <div class="bg-slate-800 border border-slate-700 w-full max-w-lg rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+            <div class="px-5 py-4 bg-slate-800/90 border-b border-slate-700 flex justify-between items-center flex-shrink-0">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                        <i class="fa-solid fa-users text-xs"></i>
                     </div>
-                    <h3 class="font-bold text-white text-base">Kelola Data Santri</h3>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Kelola Data Santri</h3>
                 </div>
                 <button onclick="closeSantriModal()" class="w-8 h-8 rounded-full bg-slate-700/50 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition"><i class="fa-solid fa-xmark text-sm"></i></button>
             </div>
-            <div class="p-6 space-y-6">
-                <form onsubmit="tambahSantri(event)" class="space-y-4 bg-slate-900/60 p-4.5 rounded-2xl border border-slate-700/60">
-                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Tambah Santri Baru</h4>
+            <div class="p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto">
+                <form onsubmit="tambahSantri(event)" class="space-y-3 bg-slate-900/60 p-4 rounded-2xl border border-slate-700/60">
+                    <h4 class="text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider">Tambah Santri Baru</h4>
                     <div>
-                        <input type="text" id="new-nama" placeholder="Nama Lengkap Santri" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <input type="text" id="new-nama" placeholder="Nama Lengkap Santri" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     </div>
                     <div>
-                        <input type="text" id="new-phone" placeholder="No WhatsApp (contoh: 628123456789)" required class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <input type="text" id="new-phone" placeholder="No WA (contoh: 628123456789)" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2.5 rounded-xl text-xs transition shadow-md shadow-emerald-900/30">Simpan Santri Baru</button>
+                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-2.5 rounded-xl text-xs transition shadow-md">Simpan Santri Baru</button>
                 </form>
 
                 <div>
-                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Daftar Santri Aktif</h4>
-                    <div class="max-h-52 overflow-y-auto border border-slate-700/60 rounded-2xl bg-slate-900/40 pr-1">
-                        <table class="w-full text-left text-sm">
+                    <h4 class="text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider mb-2.5">Daftar Santri Aktif</h4>
+                    <div class="max-h-48 overflow-y-auto border border-slate-700/60 rounded-2xl bg-slate-900/40 pr-1">
+                        <table class="w-full text-left text-xs sm:text-sm">
                             <tbody id="list-santri-modal" class="divide-y divide-slate-700/50">
                                 <!-- Diisi JS -->
                             </tbody>
@@ -276,7 +264,7 @@
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-slate-800 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 transform translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+    <div id="toast" class="fixed bottom-4 right-4 left-4 sm:left-auto bg-slate-800 text-white px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl shadow-2xl border border-slate-700 transform translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
         <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
         <span id="toast-msg" class="text-xs font-semibold">Berhasil</span>
     </div>
@@ -287,10 +275,8 @@
         let stateMurojaah = [];
         let activeTab = 'hari-ini';
 
-        // Inisialisasi Tanggal Hari Ini
         document.getElementById('input-tanggal').valueAsDate = new Date();
 
-        // Ambil Data dari Spreadsheet via Web App
         async function fetchData() {
             const icon = document.getElementById('sync-icon');
             icon.classList.add('fa-spin');
@@ -322,7 +308,6 @@
             });
         }
 
-        // Tambah Murojaah
         async function submitMurojaah(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-submit');
@@ -355,11 +340,10 @@
                 showToast('Terjadi kesalahan koneksi', 'error');
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Simpan Setoran Murojaah';
+                btn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Simpan Setoran';
             }
         }
 
-        // Render Dashboard & Statistik
         function renderDashboard() {
             const todayStr = formatDateObj(new Date());
             const yesterdayDate = new Date();
@@ -394,11 +378,11 @@
             const btnKemarin = document.getElementById('tab-kemarin');
 
             if (tab === 'hari-ini') {
-                btnHariIni.className = "px-5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-md transition-all duration-200";
-                btnKemarin.className = "px-5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all duration-200";
+                btnHariIni.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow transition";
+                btnKemarin.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition";
             } else {
-                btnKemarin.className = "px-5 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-md transition-all duration-200";
-                btnHariIni.className = "px-5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all duration-200";
+                btnKemarin.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow transition";
+                btnHariIni.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition";
             }
             
             const todayStr = formatDateObj(new Date());
@@ -416,7 +400,7 @@
             murojaahTarget.forEach(m => mapMurojaah[m.nama] = m);
 
             if (stateSantri.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-8 text-slate-500 text-xs">Belum ada data santri. Silakan tambah santri terlebih dahulu.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-6 text-slate-500 text-xs">Belum ada data santri. Silakan tambah santri.</td></tr>`;
                 return;
             }
 
@@ -427,20 +411,20 @@
                 let tr = document.createElement('tr');
                 tr.className = 'hover:bg-slate-700/30 transition';
                 tr.innerHTML = `
-                    <td class="py-3.5 px-4 font-semibold text-slate-200 text-xs">${santri.nama}</td>
-                    <td class="py-3.5 px-4">
-                        <span class="px-3 py-1 rounded-full text-[11px] font-bold ${isSudah ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}">
-                            ${isSudah ? 'Sudah Murojaah' : 'Belum Murojaah'}
+                    <td class="py-3 px-3 sm:px-4 font-semibold text-slate-200">${santri.nama}</td>
+                    <td class="py-3 px-3 sm:px-4">
+                        <span class="px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold ${isSudah ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'}">
+                            ${isSudah ? 'Sudah' : 'Belum'}
                         </span>
                     </td>
-                    <td class="py-3.5 px-4 text-slate-300 text-xs">${isSudah ? record.halaman + ' Halaman' : '-'}</td>
-                    <td class="py-3.5 px-4 text-slate-400 italic text-xs">${isSudah ? (record.catatan || '-') : '-'}</td>
-                    <td class="py-3.5 px-4 text-center">
+                    <td class="py-3 px-3 sm:px-4 text-slate-300">${isSudah ? record.halaman + ' Hal' : '-'}</td>
+                    <td class="py-3 px-3 sm:px-4 text-slate-400 italic">${isSudah ? (record.catatan || '-') : '-'}</td>
+                    <td class="py-3 px-3 sm:px-4 text-center">
                         ${!isSudah ? `
-                            <button onclick="kirimWhatsApp('${santri.nama}', '${santri.phone}', '${targetDate}')" class="bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold transition inline-flex items-center gap-1.5 shadow-sm">
-                                <i class="fa-brands fa-whatsapp text-sm"></i> Ingatkan
+                            <button onclick="kirimWhatsApp('${santri.nama}', '${santri.phone}', '${targetDate}')" class="bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 px-2.5 py-1.5 rounded-xl text-xs font-semibold transition inline-flex items-center gap-1 shadow-sm">
+                                <i class="fa-brands fa-whatsapp"></i> Ingatkan
                             </button>
-                        ` : '<span class="text-xs text-slate-500 font-medium">Selesai</span>'}
+                        ` : '<span class="text-xs text-slate-500 font-medium">-</span>'}
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -463,7 +447,7 @@
             filtered.sort((a, b) => new Date(b.tanggal) - new Date(a.tanggal));
 
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-8 text-slate-500 text-xs">Tidak ada data riwayat ditemukan.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-6 text-slate-500 text-xs">Tidak ada riwayat ditemukan.</td></tr>`;
                 return;
             }
 
@@ -471,19 +455,18 @@
                 let tr = document.createElement('tr');
                 tr.className = 'hover:bg-slate-700/30 transition';
                 tr.innerHTML = `
-                    <td class="py-3.5 px-4 text-slate-300 text-xs font-medium">${m.tanggal}</td>
-                    <td class="py-3.5 px-4 font-semibold text-slate-200 text-xs">${m.nama}</td>
-                    <td class="py-3.5 px-4 text-slate-300 text-xs">${m.halaman} Hal</td>
-                    <td class="py-3.5 px-4 text-slate-400 text-xs">${m.catatan || '-'}</td>
-                    <td class="py-3.5 px-4 text-center">
-                        <button onclick="hapusMurojaah('${m.id}')" class="text-rose-400 hover:text-rose-300 bg-rose-500/10 hover:bg-rose-500/20 px-2.5 py-1.5 rounded-xl text-xs transition border border-rose-500/20"><i class="fa-solid fa-trash"></i></button>
+                    <td class="py-3 px-3 sm:px-4 text-slate-300 font-medium">${m.tanggal}</td>
+                    <td class="py-3 px-3 sm:px-4 font-semibold text-slate-200">${m.nama}</td>
+                    <td class="py-3 px-3 sm:px-4 text-slate-300">${m.halaman} Hal</td>
+                    <td class="py-3 px-3 sm:px-4 text-slate-400">${m.catatan || '-'}</td>
+                    <td class="py-3 px-3 sm:px-4 text-center">
+                        <button onclick="hapusMurojaah('${m.id}')" class="text-rose-400 hover:text-rose-300 bg-rose-500/15 hover:bg-rose-500/25 px-2.5 py-1.5 rounded-xl text-xs transition border border-rose-500/20"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
-        // WhatsApp Reminder Individual
         function kirimWhatsApp(nama, phone, tanggal) {
             let cleanPhone = phone.replace(/[^0-9]/g, '');
             if (cleanPhone.startsWith('0')) {
@@ -494,7 +477,6 @@
             window.open(url, '_blank');
         }
 
-        // Rekap WhatsApp Belum Murojaah
         function bukaWhatsAppMasal() {
             const todayStr = formatDateObj(new Date());
             const murojaahHariIni = new Set(stateMurojaah.filter(m => m.tanggal === todayStr).map(m => m.nama));
@@ -515,7 +497,6 @@
             window.open(url, '_blank');
         }
 
-        // Manajemen Santri Modal
         function openSantriModal() {
             document.getElementById('santri-modal').classList.remove('hidden');
             document.getElementById('santri-modal').classList.add('flex');
@@ -533,10 +514,10 @@
             stateSantri.forEach(s => {
                 tbody.innerHTML += `
                     <tr class="hover:bg-slate-700/30 transition">
-                        <td class="py-3 px-4 font-semibold text-slate-200 text-xs">${s.nama}</td>
-                        <td class="py-3 px-4 text-slate-400 text-xs">${s.phone}</td>
-                        <td class="py-3 px-4 text-right">
-                            <button onclick="hapusSantri('${s.nama}')" class="text-rose-400 hover:text-rose-300 text-xs font-semibold bg-rose-500/10 hover:bg-rose-500/20 px-3 py-1.5 rounded-xl border border-rose-500/20 transition"><i class="fa-solid fa-trash"></i> Hapus</button>
+                        <td class="py-2.5 px-3 font-semibold text-slate-200">${s.nama}</td>
+                        <td class="py-2.5 px-3 text-slate-400">${s.phone}</td>
+                        <td class="py-2.5 px-3 text-right">
+                            <button onclick="hapusSantri('${s.nama}')" class="text-rose-400 hover:text-rose-300 text-xs font-semibold bg-rose-500/15 px-2.5 py-1 rounded-lg border border-rose-500/20 transition"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
                 `;
@@ -582,12 +563,12 @@
         }
 
         async function hapusMurojaah(id) {
-            if (!confirm('Yakin ingin menghapus catatan murojaah ini?')) return;
+            if (!confirm('Yakin ingin menghapus catatan ini?')) return;
             try {
                 const res = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify({ action: 'deleteMurojaah', id }) });
                 const result = await res.json();
                 if (result.success) {
-                    showToast('Data murojaah dihapus');
+                    showToast('Data dihapus');
                     fetchData();
                 } else {
                     showToast('Gagal menghapus data', 'error');
@@ -597,7 +578,6 @@
             }
         }
 
-        // Helper Tanggal YYYY-MM-DD
         function formatDateObj(date) {
             let d = new Date(date),
                 month = '' + (d.getMonth() + 1),
@@ -608,7 +588,6 @@
             return [year, month, day].join('-');
         }
 
-        // Toast Notification
         function showToast(msg, type = 'success') {
             const toast = document.getElementById('toast');
             const msgEl = document.getElementById('toast-msg');
@@ -623,7 +602,6 @@
             }, 3000);
         }
 
-        // Load awal data saat pertama kali dibuka
         window.onload = () => {
             fetchData();
         };
